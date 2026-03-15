@@ -123,7 +123,7 @@ const relationshipEl = document.getElementById("daysRelationship");
 
 if(togetherEl && relationshipEl){
 
-togetherEl.textContent = diffStart + " Tage kennen wir uns";
+togetherEl.textContent = diffStart + " Tage kennen ";
 relationshipEl.textContent = diffRelationship + " Tage zusammen ❤️";
 
 }
