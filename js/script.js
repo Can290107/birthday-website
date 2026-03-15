@@ -232,14 +232,7 @@ alert("Das stimmt leider nicht ❤️");
 }
 
 /*----------Hereffekt beim Klicken-------------*/
-document.getElementById("passwordInput")
-.addEventListener("keypress", function(e){
 
-if(e.key === "Enter"){
-checkPassword();
-}
-
-});
 
 document.addEventListener("click",(e)=>{
 
