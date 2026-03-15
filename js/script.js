@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+
+
+
+
 /* ---------------- Elemente ---------------- */
 
 const button = document.getElementById("startBtn");
@@ -123,7 +129,12 @@ diffRelationship + " Tage zusammen ❤️";
 
 /* ---------------- Liebesbrief Animation ---------------- */
 
+let letterStarted = false;
+
 function showLetter(){
+
+if(letterStarted) return;
+letterStarted = true;
 
 // Konfetti
 confetti({
@@ -231,5 +242,7 @@ document.body.appendChild(heart);
 setTimeout(()=>{
 heart.remove();
 },4000);
+
+});
 
 });
