@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+
 
 
 
@@ -242,7 +242,5 @@ document.body.appendChild(heart);
 setTimeout(()=>{
 heart.remove();
 },4000);
-
-});
 
 });
