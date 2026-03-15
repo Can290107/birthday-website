@@ -108,7 +108,7 @@ block:"center"
 
 /* ---------------- Beziehungs Counter ---------------- */
 
-document.addEventListener("DOMContentLoaded", () => {
+function updateRelationshipCounter(){
 
 const startDate = new Date("2025-04-14");
 const relationshipDate = new Date("2025-06-21");
@@ -118,13 +118,17 @@ const today = new Date();
 const diffStart = Math.floor((today - startDate) / (1000*60*60*24));
 const diffRelationship = Math.floor((today - relationshipDate) / (1000*60*60*24));
 
-document.getElementById("daysTogether").textContent =
-diffStart + " Tage kennen wir uns";
+const togetherEl = document.getElementById("daysTogether");
+const relationshipEl = document.getElementById("daysRelationship");
 
-document.getElementById("daysRelationship").textContent =
-diffRelationship + " Tage zusammen ❤️";
+if(togetherEl && relationshipEl){
 
-});
+togetherEl.textContent = diffStart + " Tage kennen wir uns";
+relationshipEl.textContent = diffRelationship + " Tage zusammen ❤️";
+
+}
+
+}
 
 
 /* ---------------- Liebesbrief Animation ---------------- */
@@ -194,11 +198,17 @@ const password = document.getElementById("passwordInput").value;
 
 const correctPassword = "15.04.2025";
 
+const loginBtn = document.getElementById("loginBtn");
+
+if(loginBtn){
+loginBtn.addEventListener("click", checkPassword);
+}
+
 if(password === correctPassword){
 
 document.getElementById("loginScreen").style.display = "none";
 document.getElementById("mainContent").style.display = "block";
-
+updateRelationshipCounter();
 setTimeout(()=>{
 
 confetti({
