@@ -321,11 +321,94 @@ function deleteTodo(id) {
 
 }
 
+/* ---------------- Kalender ---------------- */
+
+let currentDate = new Date();
+
+function renderCalendar(events = {}) {
+
+  const grid = document.getElementById("calendarGrid");
+  const title = document.getElementById("calendarTitle");
+
+  if(!grid || !title) return;
+
+  grid.innerHTML = "";
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+
+  title.textContent = currentDate.toLocaleDateString("de-DE", {
+    month: "long",
+    year: "numeric"
+  });
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  // Leere Felder
+  for(let i = 0; i < firstDay; i++){
+    grid.innerHTML += "<div></div>";
+  }
+
+  for(let day = 1; day <= daysInMonth; day++){
+
+    const key = `${year}-${month}-${day}`;
+    const hasEvent = events[key];
+
+    const div = document.createElement("div");
+    div.classList.add("calendar-day");
+
+    if(hasEvent) div.classList.add("has-event");
+
+    div.textContent = day;
+
+    div.onclick = () => {
+
+      if(!db) return;
+
+      const text = prompt("Was wollen wir an diesem Tag machen? ❤️", hasEvent || "");
+
+      if(text){
+        setDoc(doc(db, "events", key), {
+          text: text
+        });
+      }
+    };
+
+    grid.appendChild(div);
+  }
+}
+
+function changeMonth(direction){
+  currentDate.setMonth(currentDate.getMonth() + direction);
+  loadEvents();
+}
+
+function loadEvents(){
+
+  if(!db) return;
+
+  onSnapshot(collection(db, "events"), (snapshot) => {
+
+    const events = {};
+
+    snapshot.forEach(docItem => {
+      events[docItem.id] = docItem.data().text;
+    });
+
+    renderCalendar(events);
+  });
+
+}
 
 window.addTodo = addTodo;
 window.toggleTodo = toggleTodo;
 window.deleteTodo = deleteTodo;
 window.changeMonth = changeMonth;
+// Kalender starten
+if(document.getElementById("calendarGrid")){
+  loadEvents();
+}
 window.goBack = goBack;
 if(document.getElementById("todoList")){
   loadTodos();

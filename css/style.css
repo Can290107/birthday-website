@@ -613,3 +613,19 @@ opacity:0;
 body {
   padding: 20px;
 }
+.calendar-day {
+  padding: 15px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.calendar-day:hover {
+  background: rgba(236,72,153,0.3);
+}
+
+.calendar-day.has-event {
+  border: 2px solid #ec4899;
+}
