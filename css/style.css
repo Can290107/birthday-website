@@ -451,10 +451,12 @@ padding:30px;
 }
 
 .relationship-counter{
-top:10px;
-right:10px;
-font-size:12px;
-}
+    top:auto;
+    bottom:15px;
+    left:50%;
+    right:auto;
+    transform:translateX(-50%); 
+  }
 
 button{
 padding:15px 25px;
