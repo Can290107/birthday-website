@@ -450,13 +450,6 @@ margin:120px 20px;
 padding:30px;
 }
 
-.relationship-counter{
-    top:auto;
-    bottom:15px;
-    left:50%;
-    right:auto;
-    transform:translateX(-50%); 
-  }
 
 button{
 padding:15px 25px;
@@ -487,26 +480,27 @@ padding:8px 12px;
 
 .relationship-counter{
   position:fixed;
-  top:10px;
-  right:10px;
 
+  bottom:20px;          /* 👈 nur unten */
+  left:50%;             /* 👈 mittig */
+  transform:translateX(-50%);
+
+  max-width:90%;
   width:auto;
-  max-width:120px;
 
-  font-size:11px;
-  padding:6px 8px;
+  font-size:12px;
+  padding:10px 14px;
 
-  background:rgba(15,23,42,0.85);
+  background:rgba(15,23,42,0.9);
   backdrop-filter:blur(10px);
 
-  border-radius:10px;
+  border-radius:14px;
 
-  text-align:right;
+  text-align:center;
 
-  box-shadow:0 0 15px rgba(236,72,153,0.4);
+  box-shadow:0 0 20px rgba(236,72,153,0.4);
 
-  z-index:9999;
-  pointer-events:none;
+  z-index:999;
 }
 
 .relationship-counter p{
