@@ -613,19 +613,27 @@ opacity:0;
 body {
   padding: 20px;
 }
-.calendar-day {
-  padding: 15px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-  text-align: center;
+.calendar-grid{
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap:10px;
+  margin-top:20px;
 }
 
-.calendar-day:hover {
-  background: rgba(236,72,153,0.3);
+.calendar-day{
+  background:rgba(255,255,255,0.05);
+  padding:15px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-.calendar-day.has-event {
-  border: 2px solid #ec4899;
+.calendar-day:hover{
+  background:#ec4899;
+  transform:scale(1.1);
+}
+
+.calendar-day.has-event{
+  background:#ec4899;
+  box-shadow:0 0 10px #ec4899;
 }

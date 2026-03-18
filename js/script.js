@@ -20,7 +20,7 @@ function initFirebase() {
 
   console.log("Firebase ready ✅");
 
-  // 👉 Jetzt erst starten
+  // Jetzt erst starten
   if(document.getElementById("todoList")){
     loadTodos();
   }
@@ -352,6 +352,16 @@ function renderCalendar(events = {}) {
   if(!grid || !title) return;
 
   grid.innerHTML = "";
+  // Wochentage
+const days = ["Mo","Di","Mi","Do","Fr","Sa","So"];
+
+days.forEach(day => {
+  const div = document.createElement("div");
+  div.textContent = day;
+  div.style.fontWeight = "bold";
+  div.style.opacity = "0.7";
+  grid.appendChild(div);
+});
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
@@ -361,7 +371,8 @@ function renderCalendar(events = {}) {
     year: "numeric"
   });
 
-  const firstDay = new Date(year, month, 1).getDay();
+  let firstDay = new Date(year, month, 1).getDay();
+firstDay = firstDay === 0 ? 6 : firstDay - 1;
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
   // Leere Felder
