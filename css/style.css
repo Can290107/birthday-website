@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 html{
 scroll-behavior:smooth;
 }
@@ -6,6 +10,7 @@ body{
 
 margin:0;
 padding:0;
+padding-top:80px;
 
 font-family:'Poppins', sans-serif;
 
@@ -20,16 +25,16 @@ flex-direction:column;
 align-items:center;
 
 text-align:center;
+overflow-x: hidden;
 
 }
 
 /* Container */
 
 .container{
-
-max-width:700px;
-padding:20px;
-
+  width:100%;
+  max-width:700px;
+  padding:20px 15px;
 }
 
 /* Überschrift */
@@ -110,11 +115,11 @@ box-shadow:0 0 25px rgba(236,72,153,0.7);
 
 section{
 
-max-width:800px;
+  width:100%;
+  max-width:800px;
+  margin:120px auto;
+  padding:25px 15px;
 
-margin:180px auto;
-
-padding:40px;
 
 text-align:center;
 
@@ -473,9 +478,11 @@ padding:8px 12px;
 .relationship-counter{
 
 position:fixed;
-
-top:20px;
-right:20px;
+  top:10px;
+  right:10px;
+  max-width:90vw;
+  font-size:12px;
+  padding:8px 10px;
 
 background:rgba(15,23,42,0.85);
 
