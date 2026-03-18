@@ -1,18 +1,16 @@
-let db;
+let db = null;
 let collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, setDoc;
 
-if(window.firebaseFns){
+if (window.firebaseFns && window.db) {
   db = window.db;
 
-  ({
-    collection,
-    addDoc,
-    onSnapshot,
-    deleteDoc,
-    doc,
-    updateDoc,
-    setDoc
-  } = window.firebaseFns);
+  collection = window.firebaseFns.collection;
+  addDoc = window.firebaseFns.addDoc;
+  onSnapshot = window.firebaseFns.onSnapshot;
+  deleteDoc = window.firebaseFns.deleteDoc;
+  doc = window.firebaseFns.doc;
+  updateDoc = window.firebaseFns.updateDoc;
+  setDoc = window.firebaseFns.setDoc;
 }
 /* ---------------- Elemente ---------------- */
 
